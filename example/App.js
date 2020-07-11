@@ -1,22 +1,24 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
+import InteractablePlayground, {
+  SCREENS as INTERACTABLE_SCREENS, SCREENS,
+} from './src/interactablePlayground';
 
-import { ExampleComponent } from "react-native-interactable-reanimted";
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <ExampleComponent text="Create Expo Library Example 😄" />
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent:"center",
-    alignItems:"center"
+const ExampleApp = createStackNavigator(
+  {
+    InteractablePlayground,
+    ...SCREENS,
+    ...INTERACTABLE_SCREENS,
   },
+  {
+    headerMode: 'screen',
+  }
+);
+
+const createApp = Platform.select({
+  web: (input) => createBrowserApp(input, { history: 'hash' }),
+  default: (input) => createAppContainer(input),
 });
 
-export default App;
+export default createApp(ExampleApp);
