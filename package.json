@@ -1,12 +1,12 @@
 {
   "name": "react-native-interactable-reanimted",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Made with expo-library",
   "author": "nomi9995",
   "license": "MIT",
   "repository": "nomi9995/react-native-interactable-reanimted",
   "scripts": {
-    "postinstall": "cd ./example && expo-yarn-workspaces postinstall"
+    "postinstall_": "cd ./example && expo-yarn-workspaces postinstall"
   },
   "devDependencies": {
     "expo-yarn-workspaces": "^1.2.1"
@@ -14,7 +14,6 @@
   "workspaces": [
     "example"
   ],
-  "private": false,
   "dependencies": {
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.9.0"
