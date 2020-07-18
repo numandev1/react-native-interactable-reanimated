@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { StyleSheet, View, Image, Dimensions } from 'react-native';
 import Animated, { EasingNode } from 'react-native-reanimated';
-import Interactable from 'react-native-interactable-reanimted';
+import Interactable from 'react-native-interactable-reanimated';
 
 const widthFactor = Dimensions.get('window').width / 375;
 const heightFactor = (Dimensions.get('window').height - 75) / 667;

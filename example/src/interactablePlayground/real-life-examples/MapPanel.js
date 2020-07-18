@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
-import Interactable from 'react-native-interactable-reanimted';
+import Interactable from 'react-native-interactable-reanimated';
 
 const Screen = {
   width: Dimensions.get('window').width,

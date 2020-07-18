@@ -8,7 +8,7 @@ import {
   Image,
   TextInput,
 } from 'react-native';
-import Interactable from 'react-native-interactable-reanimted';
+import Interactable from 'react-native-interactable-reanimated';
 
 export default class TouchesInside extends Component {
   constructor(props) {

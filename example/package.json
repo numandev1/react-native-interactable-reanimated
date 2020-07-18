@@ -16,7 +16,7 @@
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
     "react-native-gesture-handler": "^1.6.1",
-    "react-native-interactable-reanimted": "link:../",
+    "react-native-interactable-reanimated": "link:../",
     "react-native-reanimated": "^1.9.0",
     "react-native-screens": "^2.9.0",
     "react-native-web": "~0.11.7",

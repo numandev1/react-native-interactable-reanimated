@@ -8,7 +8,7 @@ import {
   Button,
   Dimensions,
 } from 'react-native';
-import Interactable from 'react-native-interactable-reanimted';
+import Interactable from 'react-native-interactable-reanimated';
 
 const Screen = Dimensions.get('window');
 const SideMenuWidth = 280;

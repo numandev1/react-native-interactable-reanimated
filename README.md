@@ -1,6 +1,6 @@
-# react-native-interactable-reanimted
+# react-native-interactable-reanimated
 
-[![NPM](https://img.shields.io/npm/v/react-native-interactable-reanimted.svg)](https://www.npmjs.com/package/react-native-interactable-reanimted) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-native-interactable-reanimated.svg)](https://www.npmjs.com/package/react-native-interactable-reanimated) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 <img src="http://i.imgur.com/ErA2GQo.gif" width=200 />&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="http://i.imgur.com/pH6oB5D.gif" width=200 />&nbsp;&nbsp;&nbsp;&nbsp;
@@ -8,12 +8,12 @@
 <img src="http://i.imgur.com/dWFYZBG.gif" width=200 />
 
 ## Note
-This is a copy of [interactable](https://github.com/software-mansion/react-native-reanimated/blob/master/Example/reanimated1/Interactable.js) from [react-native-reanimted](https://github.com/software-mansion/react-native-reanimated)
+This is a copy of [interactable](https://github.com/software-mansion/react-native-reanimated/blob/master/Example/reanimated1/Interactable.js) from [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated)
 
 ## Install
 
 ```bash
-npm install --save react-native-interactable-reanimted
+npm install --save react-native-interactable-reanimated
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ npm install --save react-native-interactable-reanimted
 ```jsx
 import React, { Component } from 'react'
 
-import Interactable from 'react-native-interactable-reanimted'
+import Interactable from 'react-native-interactable-reanimated'
 
 class Example extends Component {
   render() {

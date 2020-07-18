@@ -1,10 +1,10 @@
 {
-  "name": "react-native-interactable-reanimted",
-  "version": "0.0.4",
+  "name": "react-native-interactable-reanimated",
+  "version": "0.0.5",
   "description": "Made with expo-library",
   "author": "nomi9995",
   "license": "MIT",
-  "repository": "nomi9995/react-native-interactable-reanimted",
+  "repository": "nomi9995/react-native-interactable-reanimated",
   "scripts": {
     "postinstall_": "cd ./example && expo-yarn-workspaces postinstall"
   },
@@ -19,9 +19,9 @@
     "react-native-reanimated": "^1.9.0"
   },
   "keywords": [
-    "reanimted",
+    "reanimated",
     "interactable",
-    "react-native-interactable-reanimted",
+    "react-native-interactable-reanimated",
     "react",
     "native",
     "react-native"
