@@ -50,7 +50,8 @@ export default class AlertAreas extends Component {
               right: Screen.width / 2 + 50,
               top: Screen.height / 2 - 150,
               bottom: Screen.height / 2,
-            }}>
+            }}
+          >
             <Text style={{ fontSize: 28 }}>Non Draggable Area</Text>
           </View>
         </View>
@@ -80,7 +81,8 @@ export default class AlertAreas extends Component {
           ]}
           onAlert={this.onAlert.bind(this)}
           onDrag={this.onDrag.bind(this)}
-          initialPosition={{ x: -140, y: -250 }}>
+          initialPosition={{ x: -140, y: -250 }}
+        >
           <View
             style={{
               width: 70,

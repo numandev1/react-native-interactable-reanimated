@@ -52,18 +52,18 @@ function influenceAreaWithRadius(radius, anchor) {
 
 function snapTo(target, snapPoints, best, clb, dragClb) {
   const dist = new Value(0);
-  const snap = pt => [
+  const snap = (pt) => [
     set(best.tension, pt.tension || DEFAULT_SNAP_TENSION),
     set(best.damping, pt.damping || DEFAULT_SNAP_DAMPING),
     set(best.x, pt.x || 0),
     set(best.y, pt.y || 0),
   ];
-  const snapDist = pt =>
+  const snapDist = (pt) =>
     add(sq(sub(target.x, pt.x || 0)), sq(sub(target.y, pt.y || 0)));
   return [
     set(dist, snapDist(snapPoints[0])),
     ...snap(snapPoints[0]),
-    ...snapPoints.map(pt => {
+    ...snapPoints.map((pt) => {
       const newDist = snapDist(pt);
       return cond(lessThan(newDist, dist), [set(dist, newDist), ...snap(pt)]);
     }),
@@ -173,7 +173,7 @@ function withInfluence(area, target, behavior) {
   const testBottom =
     area.bottom === undefined || lessOrEq(target.y, area.bottom);
   const testNodes = [testLeft, testRight, testTop, testBottom].filter(
-    t => t !== true
+    (t) => t !== true
   );
   const test = and(...testNodes);
   return {
@@ -314,7 +314,7 @@ class Interactable extends Component {
     addFriction(snapAnchor.damping, null, snapBuckets);
 
     if (props.springPoints) {
-      props.springPoints.forEach(pt => {
+      props.springPoints.forEach((pt) => {
         addSpring(pt, pt.tension, pt.influenceArea);
         if (pt.damping) {
           addFriction(pt.damping, pt.influenceArea);
@@ -322,7 +322,7 @@ class Interactable extends Component {
       });
     }
     if (props.gravityPoints) {
-      props.gravityPoints.forEach(pt => {
+      props.gravityPoints.forEach((pt) => {
         const falloff = pt.falloff || DEFAULT_GRAVITY_FALLOF;
         addGravity(pt, pt.strength, falloff, pt.influenceArea);
         if (pt.damping) {
@@ -333,7 +333,7 @@ class Interactable extends Component {
       });
     }
     if (props.frictionAreas) {
-      props.frictionAreas.forEach(pt => {
+      props.frictionAreas.forEach((pt) => {
         addFriction(pt.damping, pt.influenceArea);
       });
     }
@@ -352,12 +352,12 @@ class Interactable extends Component {
     // behaviors can go under one of three buckets depending on their priority
     // we append to each bucket but in Interactable behaviors get added to the
     // front, so we join in reverse order and then reverse the array.
-    const sortBuckets = specialBuckets => ({
+    const sortBuckets = (specialBuckets) => ({
       x: specialBuckets
-        .map((b, idx) => [...permBuckets[idx], ...b].reverse().map(b => b.x))
+        .map((b, idx) => [...permBuckets[idx], ...b].reverse().map((b) => b.x))
         .reduce((acc, b) => acc.concat(b), []),
       y: specialBuckets
-        .map((b, idx) => [...permBuckets[idx], ...b].reverse().map(b => b.y))
+        .map((b, idx) => [...permBuckets[idx], ...b].reverse().map((b) => b.y))
         .reduce((acc, b) => acc.concat(b), []),
     });
     const dragBehaviors = sortBuckets(dragBuckets);
@@ -472,7 +472,8 @@ class Interactable extends Component {
         minDist={10}
         enabled={this.props.dragEnabled}
         onGestureEvent={this._onGestureEvent}
-        onHandlerStateChange={this._onGestureEvent}>
+        onHandlerStateChange={this._onGestureEvent}
+      >
         <Animated.View
           style={[
             style,
@@ -482,7 +483,8 @@ class Interactable extends Component {
                 { translateY: horizontalOnly ? 0 : this._transY },
               ],
             },
-          ]}>
+          ]}
+        >
           {children}
         </Animated.View>
       </PanGestureHandler>

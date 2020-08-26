@@ -49,7 +49,8 @@ export default class MapPanel extends Component {
             ]}
             boundaries={{ top: -300 }}
             initialPosition={{ y: Screen.height - 100 }}
-            animatedValueY={this._deltaY}>
+            animatedValueY={this._deltaY}
+          >
             <View style={styles.panel}>
               <View style={styles.panelHeader}>
                 <View style={styles.panelHandle} />

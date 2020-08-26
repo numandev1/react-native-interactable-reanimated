@@ -6,7 +6,7 @@ import Interactable from 'react-native-interactable-reanimated';
 const Screen = Dimensions.get('window');
 const Calendar = {
   width: Screen.width - 16,
-  height: (Screen.width - 16) / 944 * 793,
+  height: ((Screen.width - 16) / 944) * 793,
 };
 
 export default class CollapsibleFilter extends Component {
@@ -38,7 +38,8 @@ export default class CollapsibleFilter extends Component {
                     },
                   ],
                 },
-              ]}>
+              ]}
+            >
               FEBRUARY 2017
             </Animated.Text>
             <Animated.Text
@@ -60,7 +61,8 @@ export default class CollapsibleFilter extends Component {
                     },
                   ],
                 },
-              ]}>
+              ]}
+            >
               THIS WEEK
             </Animated.Text>
           </View>
@@ -91,7 +93,8 @@ export default class CollapsibleFilter extends Component {
           verticalOnly={true}
           snapPoints={[{ y: 0 }, { y: -Calendar.height * 0.84 }]}
           boundaries={{ top: -Calendar.height }}
-          animatedValueY={this._deltaY}>
+          animatedValueY={this._deltaY}
+        >
           <View style={styles.content}>
             <Row hour="09:00" text="Reminder Only: UX" />
             <Row hour="10:20" text="Mobile Guild Core - Daily" />
@@ -141,7 +144,7 @@ const styles = StyleSheet.create({
   },
   days: {
     width: Screen.width - 16,
-    height: (Screen.width - 16) / 944 * 65,
+    height: ((Screen.width - 16) / 944) * 65,
   },
   calendar: {
     width: Calendar.width,

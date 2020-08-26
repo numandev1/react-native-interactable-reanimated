@@ -20,7 +20,8 @@ export default class IconDrawer extends Component {
               height: 75,
               flexDirection: 'row',
               alignItems: 'center',
-            }}>
+            }}
+          >
             <Animated.View
               style={[
                 styles.button,
@@ -82,9 +83,13 @@ export default class IconDrawer extends Component {
 
           <Interactable.View
             horizontalOnly={true}
-            snapPoints={[{ x: 0, id: 'closed' }, { x: -230, id: 'open' }]}
+            snapPoints={[
+              { x: 0, id: 'closed' },
+              { x: -230, id: 'open' },
+            ]}
             onSnap={this.onDrawerSnap}
-            animatedValueX={this._deltaX}>
+            animatedValueX={this._deltaX}
+          >
             <View
               style={{
                 left: 0,

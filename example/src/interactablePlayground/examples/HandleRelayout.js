@@ -21,7 +21,8 @@ export default class HandleRelayout extends Component {
                 backgroundColor: 'green',
                 height: this.state.collapsed ? 80 : 180,
               },
-            ]}>
+            ]}
+          >
             <Text style={styles.label}>
               Tap to {this.state.collapsed ? 'expand' : 'collapse'}
             </Text>
@@ -30,7 +31,8 @@ export default class HandleRelayout extends Component {
 
         <Interactable.View
           horizontalOnly={true}
-          snapPoints={[{ x: 230 }, { x: 0 }, { x: -230 }]}>
+          snapPoints={[{ x: 230 }, { x: 0 }, { x: -230 }]}
+        >
           <View style={styles.card} />
         </Interactable.View>
       </View>

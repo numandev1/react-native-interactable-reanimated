@@ -67,7 +67,7 @@ export default class RowActions2 extends Component {
             minimumTrackTintColor={'#007AFF'}
             maximumTrackTintColor={'white'}
             thumbTintColor={'white'}
-            onSlidingComplete={value => this.setState({ damping: value })}
+            onSlidingComplete={(value) => this.setState({ damping: value })}
           />
           <Text style={styles.playgroundLabel}>Change spring tension:</Text>
           <Slider
@@ -79,7 +79,7 @@ export default class RowActions2 extends Component {
             minimumTrackTintColor={'#007AFF'}
             maximumTrackTintColor={'white'}
             thumbTintColor={'white'}
-            onSlidingComplete={value => this.setState({ tension: value })}
+            onSlidingComplete={(value) => this.setState({ tension: value })}
           />
         </View>
       </View>
@@ -97,7 +97,8 @@ class Row extends Component {
       <View style={{ backgroundColor: '#ceced2' }}>
         <View
           style={{ position: 'absolute', left: 0, right: 0, height: 75 }}
-          pointerEvents="box-none">
+          pointerEvents="box-none"
+        >
           <Animated.View
             style={[
               styles.trashHolder,
@@ -111,10 +112,12 @@ class Row extends Component {
                   },
                 ],
               },
-            ]}>
+            ]}
+          >
             <TouchableOpacity
               onPress={this.onButtonPress.bind(this, 'trash')}
-              style={styles.button}>
+              style={styles.button}
+            >
               <Image
                 style={styles.button}
                 source={require('../assets/icon-trash.png')}
@@ -135,10 +138,12 @@ class Row extends Component {
                   },
                 ],
               },
-            ]}>
+            ]}
+          >
             <TouchableOpacity
               onPress={this.onButtonPress.bind(this, 'snooze')}
-              style={styles.button}>
+              style={styles.button}
+            >
               <Image
                 style={styles.button}
                 source={require('../assets/icon-clock.png')}
@@ -149,7 +154,8 @@ class Row extends Component {
 
         <View
           style={{ position: 'absolute', left: 0, right: 0, height: 75 }}
-          pointerEvents="box-none">
+          pointerEvents="box-none"
+        >
           <Animated.View
             style={[
               styles.doneHolder,
@@ -163,10 +169,12 @@ class Row extends Component {
                   },
                 ],
               },
-            ]}>
+            ]}
+          >
             <TouchableOpacity
               onPress={this.onButtonPress.bind(this, 'done')}
-              style={styles.button}>
+              style={styles.button}
+            >
               <Image
                 style={styles.button}
                 source={require('../assets/icon-check.png')}
@@ -194,9 +202,11 @@ class Row extends Component {
               tension: this.props.tension,
             },
           ]}
-          animatedValueX={this._deltaX}>
+          animatedValueX={this._deltaX}
+        >
           <View
-            style={{ left: 0, right: 0, height: 75, backgroundColor: 'white' }}>
+            style={{ left: 0, right: 0, height: 75, backgroundColor: 'white' }}
+          >
             {this.props.children}
           </View>
         </Interactable.View>

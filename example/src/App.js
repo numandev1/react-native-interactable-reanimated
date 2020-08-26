@@ -1,6 +1,10 @@
+import { createBrowserApp } from '@react-navigation/web';
+import React from 'react';
+import { Platform } from 'react-native';
 import InteractablePlayground, {
-  SCREENS as INTERACTABLE_SCREENS, SCREENS,
-} from './src/interactablePlayground';
+  SCREENS as INTERACTABLE_SCREENS,
+  SCREENS,
+} from './interactablePlayground';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';

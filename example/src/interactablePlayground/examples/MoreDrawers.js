@@ -9,7 +9,8 @@ export default class MoreDrawers extends Component {
         <View style={{ backgroundColor: 'red' }}>
           <Interactable.View
             snapPoints={[{ x: 0 }, { x: -230 }]}
-            horizontalOnly={true}>
+            horizontalOnly={true}
+          >
             <View style={styles.cover}>
               <Text style={styles.label}>Default drawer</Text>
             </View>
@@ -20,7 +21,8 @@ export default class MoreDrawers extends Component {
           <Interactable.View
             snapPoints={[{ x: 0 }, { x: -230 }]}
             boundaries={{ right: 0 }}
-            horizontalOnly={true}>
+            horizontalOnly={true}
+          >
             <View style={styles.cover}>
               <Text style={styles.label}>Drawer with limits</Text>
             </View>
@@ -31,7 +33,8 @@ export default class MoreDrawers extends Component {
           <Interactable.View
             snapPoints={[{ x: 0 }, { x: -230 }]}
             boundaries={{ right: 0, bounce: 0.2, haptics: true }}
-            horizontalOnly={true}>
+            horizontalOnly={true}
+          >
             <View style={styles.cover}>
               <Text style={styles.label}>Limits with bounce</Text>
             </View>
@@ -42,7 +45,8 @@ export default class MoreDrawers extends Component {
           <Interactable.View
             snapPoints={[{ x: 0 }, { x: -230 }]}
             dragWithSpring={{ tension: 1000, damping: 0.7 }}
-            horizontalOnly={true}>
+            horizontalOnly={true}
+          >
             <View style={styles.cover}>
               <Text style={styles.label}>Drag via spring</Text>
             </View>
@@ -56,7 +60,8 @@ export default class MoreDrawers extends Component {
             springPoints={[
               { x: 0, tension: 6000, damping: 0.5, influenceArea: { left: 0 } },
             ]}
-            horizontalOnly={true}>
+            horizontalOnly={true}
+          >
             <View style={styles.cover}>
               <Text style={styles.label}>Drag with spring resistance</Text>
             </View>

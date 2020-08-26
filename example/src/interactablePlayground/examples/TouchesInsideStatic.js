@@ -27,12 +27,12 @@ export default class TouchesInside extends Component {
           <Text style={{ marginRight: 10 }}>Vertical: </Text>
           <Switch
             value={this.state.vertical}
-            onValueChange={value => this.setState({ vertical: value })}
+            onValueChange={(value) => this.setState({ vertical: value })}
           />
           <Text style={{ marginRight: 10, marginLeft: 20 }}>Can drag: </Text>
           <Switch
             value={this.state.dragEnabled}
-            onValueChange={value => this.setState({ dragEnabled: value })}
+            onValueChange={(value) => this.setState({ dragEnabled: value })}
           />
         </View>
 
@@ -41,7 +41,8 @@ export default class TouchesInside extends Component {
           horizontalOnly={!this.state.vertical}
           dragEnabled={this.state.dragEnabled}
           snapPoints={[{ y: 0 }]}
-          style={{ width: 300, height: 500, padding: 20, borderRadius: 10 }}>
+          style={{ width: 300, height: 500, padding: 20, borderRadius: 10 }}
+        >
           <Text>Hello world</Text>
 
           <ActivityIndicator

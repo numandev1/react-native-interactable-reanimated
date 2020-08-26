@@ -1,31 +1,22 @@
 {
+  "name": "react-native-interactable-reanimated-example",
+  "displayName": "InteractableReanimated Example",
   "expo": {
-    "name": "example",
-    "slug": "example",
+    "name": "react-native-interactable-reanimated-example",
+    "slug": "react-native-interactable-reanimated-example",
+    "description": "Example app for react-native-interactable-reanimated",
+    "privacy": "public",
+    "version": "1.0.0",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "packagerOpts": {
-      "config": "metro.config.js"
-    },
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
+    "ios": {
+      "supportsTablet": true
     },
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    }
+    ]
   }
 }

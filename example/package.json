@@ -1,31 +1,37 @@
 {
-  "name": "example",
+  "name": "react-native-interactable-reanimated-example",
+  "description": "Example app for react-native-interactable-reanimated",
   "version": "0.0.1",
-  "main": "__generated__/AppEntry.js",
+  "private": true,
+  "main": "index",
   "scripts": {
-    "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "start": "expo start",
+    "test": "jest"
   },
   "dependencies": {
-    "expo": "^37.0.1",
-    "expo-keep-awake": "^8.0.0",
-    "react": "~16.9.0",
-    "react-dom": "~16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
-    "react-native-gesture-handler": "^1.6.1",
-    "react-native-interactable-reanimated": "link:../",
-    "react-native-reanimated": "^1.9.0",
+    "@react-native-community/masked-view": "0.1.10",
+    "@react-navigation/web": "^1.0.0-alpha.9",
+    "expo": "^38.0.0",
+    "expo-splash-screen": "^0.3.1",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "react-native": "0.62.2",
+    "react-native-gesture-handler": "~1.6.0",
+    "react-native-reanimated": "~1.9.0",
     "react-native-screens": "^2.9.0",
-    "react-native-web": "~0.11.7",
-    "react-navigation": "4.0.3",
-    "react-navigation-stack": "^1.7.3"
+    "react-native-unimodules": "~0.10.1",
+    "react-native-web": "^0.12.3",
+    "react-navigation": "^4.4.0",
+    "react-navigation-stack": "^2.8.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.6",
-    "babel-preset-expo": "~8.1.0"
-  },
-  "private": true
+    "@babel/core": "^7.9.6",
+    "@babel/runtime": "^7.9.6",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-preset-expo": "^8.2.3",
+    "expo-cli": "^3.21.12"
+  }
 }

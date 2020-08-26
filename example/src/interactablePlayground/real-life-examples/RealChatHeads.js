@@ -82,10 +82,11 @@ export default class ChatHeads extends Component {
                 haptics: true,
               },
             ]}
-            onStop={event => this.onStopInteraction(event, this._face1Scale)}
+            onStop={(event) => this.onStopInteraction(event, this._face1Scale)}
             animatedValueX={this._deltaX}
             animatedValueY={this._deltaY}
-            initialPosition={{ x: -140 * widthFactor, y: -270 * heightFactor }}>
+            initialPosition={{ x: -140 * widthFactor, y: -270 * heightFactor }}
+          >
             <Animated.View
               style={[
                 styles.head,
@@ -96,7 +97,8 @@ export default class ChatHeads extends Component {
                     },
                   ],
                 },
-              ]}>
+              ]}
+            >
               <Image
                 style={styles.image}
                 source={require('../assets/chatheads-face1.jpg')}
@@ -133,13 +135,16 @@ export default class ChatHeads extends Component {
                   haptics: true,
                 },
               ]}
-              onStop={event => this.onStopInteraction(event, this._face2Scale)}
+              onStop={(event) =>
+                this.onStopInteraction(event, this._face2Scale)
+              }
               animatedValueX={this._deltaX}
               animatedValueY={this._deltaY}
               initialPosition={{
                 x: 140 * widthFactor,
                 y: -250 * heightFactor,
-              }}>
+              }}
+            >
               <Animated.View
                 style={[
                   styles.head,
@@ -150,7 +155,8 @@ export default class ChatHeads extends Component {
                       },
                     ],
                   },
-                ]}>
+                ]}
+              >
                 <Image
                   style={styles.image}
                   source={require('../assets/chatheads-face2.jpg')}

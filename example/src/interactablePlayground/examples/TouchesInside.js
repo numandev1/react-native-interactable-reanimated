@@ -28,12 +28,12 @@ export default class TouchesInside extends Component {
           <Text style={{ marginRight: 10 }}>Vertical: </Text>
           <Switch
             value={this.state.vertical}
-            onValueChange={value => this.setState({ vertical: value })}
+            onValueChange={(value) => this.setState({ vertical: value })}
           />
           <Text style={{ marginRight: 10, marginLeft: 20 }}>Can drag: </Text>
           <Switch
             value={this.state.dragEnabled}
-            onValueChange={value => this.setState({ dragEnabled: value })}
+            onValueChange={(value) => this.setState({ dragEnabled: value })}
           />
         </View>
 
@@ -42,7 +42,8 @@ export default class TouchesInside extends Component {
           horizontalOnly={!this.state.vertical}
           dragEnabled={this.state.dragEnabled}
           snapPoints={[{ y: 0 }]}
-          style={{ width: 300, height: 500, padding: 20, borderRadius: 10 }}>
+          style={{ width: 300, height: 500, padding: 20, borderRadius: 10 }}
+        >
           <Button
             title="Button"
             onPress={() => {
@@ -53,7 +54,8 @@ export default class TouchesInside extends Component {
           <Picker
             style={{ backgroundColor: '#ff000020' }}
             selectedValue={this.state.language}
-            onValueChange={lang => this.setState({ language: lang })}>
+            onValueChange={(lang) => this.setState({ language: lang })}
+          >
             <Picker.Item label="Objective-C" value="objc" />
             <Picker.Item label="Java" value="java" />
             <Picker.Item label="JavaScript" value="js" />
@@ -64,7 +66,7 @@ export default class TouchesInside extends Component {
           <Switch
             style={{ alignSelf: 'center' }}
             value={this.state.switch}
-            onValueChange={value => this.setState({ switch: value })}
+            onValueChange={(value) => this.setState({ switch: value })}
           />
 
           <WebView

@@ -24,7 +24,8 @@ export default class SideMenu extends Component {
             horizontalOnly={true}
             snapPoints={[{ x: 0 }, { x: -SideMenuWidth }]}
             boundaries={{ right: RemainingWidth / 2 }}
-            initialPosition={{ x: -SideMenuWidth }}>
+            initialPosition={{ x: -SideMenuWidth }}
+          >
             <View style={styles.sideMenu}>
               <Text style={styles.sideMenuTitle}>Menu</Text>
               <Button
@@ -61,10 +62,10 @@ export default class SideMenu extends Component {
     );
   }
   onMenuPress() {
-    this.refs['menuInstance'].setVelocity({ x: 2000 });
+    this.refs.menuInstance.setVelocity({ x: 2000 });
   }
   onClosePress() {
-    this.refs['menuInstance'].setVelocity({ x: -2000 });
+    this.refs.menuInstance.setVelocity({ x: -2000 });
   }
 }
 

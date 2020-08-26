@@ -11,7 +11,8 @@ export default class CollapsingHeader extends Component {
     return (
       <View style={styles.container}>
         <View
-          style={{ backgroundColor: 'red', height: 250, alignItems: 'center' }}>
+          style={{ backgroundColor: 'red', height: 250, alignItems: 'center' }}
+        >
           <Animated.View
             style={{
               transform: [
@@ -28,7 +29,8 @@ export default class CollapsingHeader extends Component {
                   }),
                 },
               ],
-            }}>
+            }}
+          >
             <View
               style={{
                 width: 150,
@@ -45,7 +47,8 @@ export default class CollapsingHeader extends Component {
           verticalOnly={true}
           snapPoints={[{ y: 0 }, { y: -150 }]}
           boundaries={{ top: -150 }}
-          animatedValueY={this._deltaY}>
+          animatedValueY={this._deltaY}
+        >
           <View
             style={{
               left: 0,

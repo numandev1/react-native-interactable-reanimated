@@ -34,7 +34,8 @@ export default class CollapsibleFilter extends Component {
                 },
               ],
             },
-          ]}>
+          ]}
+        >
           <Animated.View
             style={[
               styles.filterTop,
@@ -46,11 +47,13 @@ export default class CollapsibleFilter extends Component {
                   extrapolateRight: 'clamp',
                 }),
               },
-            ]}>
+            ]}
+          >
             <TouchableOpacity
               onPress={() =>
                 alert('Tip: drag content up to see the filter collapse')
-              }>
+              }
+            >
               <Image
                 style={styles.filterUp}
                 source={require('../assets/icon-up.png')}
@@ -74,7 +77,8 @@ export default class CollapsibleFilter extends Component {
                     extrapolateRight: 'clamp',
                   }),
                 },
-              ]}>
+              ]}
+            >
               <Text style={styles.filterFieldText}>Anytime</Text>
             </Animated.View>
           </TouchableOpacity>
@@ -90,7 +94,8 @@ export default class CollapsibleFilter extends Component {
                     extrapolateRight: 'clamp',
                   }),
                 },
-              ]}>
+              ]}
+            >
               <Text style={styles.filterFieldText}>Anything</Text>
             </Animated.View>
           </TouchableOpacity>
@@ -100,7 +105,8 @@ export default class CollapsibleFilter extends Component {
           verticalOnly={true}
           snapPoints={[{ y: 0 }, { y: -130 }]}
           boundaries={{ top: -200 }}
-          animatedValueY={this._deltaY}>
+          animatedValueY={this._deltaY}
+        >
           <View style={styles.content}>
             <Text style={styles.panelTitle}>San Francisco Airport</Text>
             <Text style={styles.panelSubtitle}>

@@ -35,16 +35,19 @@ export default class HandleTouches extends Component {
     return (
       <Interactable.View
         horizontalOnly={true}
-        snapPoints={[{ x: 360 }, { x: 0 }, { x: -360 }]}>
+        snapPoints={[{ x: 360 }, { x: 0 }, { x: -360 }]}
+      >
         <TouchableOpacity style={styles.card} onPress={this.onCardPress}>
           <TouchableOpacity
             style={styles.button}
-            onPress={this.onButtonPress.bind(this, 'A')}>
+            onPress={this.onButtonPress.bind(this, 'A')}
+          >
             <Text style={{ textAlign: 'center' }}>Button A</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.button}
-            onPress={this.onButtonPress.bind(this, 'B')}>
+            onPress={this.onButtonPress.bind(this, 'B')}
+          >
             <Text style={{ textAlign: 'center' }}>Button B</Text>
           </TouchableOpacity>
         </TouchableOpacity>

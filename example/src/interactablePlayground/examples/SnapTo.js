@@ -26,7 +26,8 @@ export default class SnapTo extends Component {
             { x: -140, y: 250 },
             { x: 140, y: 250 },
           ]}
-          initialPosition={{ x: 140, y: 250 }}>
+          initialPosition={{ x: 140, y: 250 }}
+        >
           <View
             style={{
               width: 70,
@@ -46,7 +47,7 @@ export default class SnapTo extends Component {
     );
   }
   onButtonPress() {
-    this.refs['headInstance'].snapTo({ index: this.state.snapToIndex });
+    this.refs.headInstance.snapTo({ index: this.state.snapToIndex });
     this.setState({
       snapToIndex: (this.state.snapToIndex + 1) % 10,
     });

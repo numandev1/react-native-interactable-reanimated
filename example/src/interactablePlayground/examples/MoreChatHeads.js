@@ -17,38 +17,40 @@ export default class MoreChatHeads extends Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(
-            this,
-            this.renderSimple.bind(this)
-          )}>
+          onPress={this.onExamplePress.bind(this, this.renderSimple.bind(this))}
+        >
           <Text style={styles.button}>Simple implementation</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={this.onExamplePress.bind(
             this,
             this.renderDragViaSpring.bind(this)
-          )}>
+          )}
+        >
           <Text style={styles.button}>Drag via spring</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={this.onExamplePress.bind(
             this,
             this.renderLocalizedSprings.bind(this)
-          )}>
+          )}
+        >
           <Text style={styles.button}>Localized springs</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={this.onExamplePress.bind(
             this,
             this.renderGravityWells.bind(this)
-          )}>
+          )}
+        >
           <Text style={styles.button}>Gravity wells</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={this.onExamplePress.bind(
             this,
             this.renderHalfFriction.bind(this)
-          )}>
+          )}
+        >
           <Text style={styles.button}>Friction on lower half</Text>
         </TouchableOpacity>
       </View>
@@ -75,7 +77,8 @@ export default class MoreChatHeads extends Component {
             { x: 140, y: -250 },
             { x: 140, y: 250 },
           ]}
-          initialPosition={{ x: -140, y: -250 }}>
+          initialPosition={{ x: -140, y: -250 }}
+        >
           <View style={styles.head} />
         </Interactable.View>
       </View>
@@ -99,7 +102,8 @@ export default class MoreChatHeads extends Component {
             { x: 140, y: 250 },
           ]}
           dragWithSpring={{ tension: 1000, damping: 0.7 }}
-          initialPosition={{ x: -140, y: -250 }}>
+          initialPosition={{ x: -140, y: -250 }}
+        >
           <View style={styles.head} />
         </Interactable.View>
       </View>
@@ -147,7 +151,8 @@ export default class MoreChatHeads extends Component {
               haptics: true,
             },
           ]}
-          initialPosition={{ x: -140, y: -250 }}>
+          initialPosition={{ x: -140, y: -250 }}
+        >
           <View style={styles.head} />
         </Interactable.View>
       </View>
@@ -196,7 +201,8 @@ export default class MoreChatHeads extends Component {
             },
           ]}
           onStop={this.onStopInteraction}
-          initialPosition={{ x: -140, y: -250 }}>
+          initialPosition={{ x: -140, y: -250 }}
+        >
           <View style={styles.head} />
         </Interactable.View>
       </View>
@@ -223,7 +229,8 @@ export default class MoreChatHeads extends Component {
           frictionAreas={[
             { damping: 0.3, influenceArea: { top: 0 }, haptics: true },
           ]}
-          initialPosition={{ x: -140, y: -250 }}>
+          initialPosition={{ x: -140, y: -250 }}
+        >
           <View style={styles.head} />
         </Interactable.View>
       </View>

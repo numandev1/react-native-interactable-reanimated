@@ -67,7 +67,7 @@ export default class RowActions1 extends Component {
             minimumTrackTintColor={'#007AFF'}
             maximumTrackTintColor={'white'}
             thumbTintColor={'white'}
-            onSlidingComplete={value => this.setState({ damping: value })}
+            onSlidingComplete={(value) => this.setState({ damping: value })}
           />
           <Text style={styles.playgroundLabel}>Change spring tension:</Text>
           <Slider
@@ -79,7 +79,7 @@ export default class RowActions1 extends Component {
             minimumTrackTintColor={'#007AFF'}
             maximumTrackTintColor={'white'}
             thumbTintColor={'white'}
-            onSlidingComplete={value => this.setState({ tension: value })}
+            onSlidingComplete={(value) => this.setState({ tension: value })}
           />
         </View>
       </View>
@@ -104,10 +104,12 @@ class Row extends Component {
             height: 75,
             flexDirection: 'row',
             alignItems: 'center',
-          }}>
+          }}
+        >
           <TouchableOpacity
             style={[styles.button]}
-            onPress={this.onButtonPress.bind(this, 'trash')}>
+            onPress={this.onButtonPress.bind(this, 'trash')}
+          >
             <Animated.Image
               source={require('../assets/icon-trash.png')}
               style={[
@@ -135,7 +137,8 @@ class Row extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.button]}
-            onPress={this.onButtonPress.bind(this, 'snooze')}>
+            onPress={this.onButtonPress.bind(this, 'snooze')}
+          >
             <Animated.Image
               source={require('../assets/icon-clock.png')}
               style={[
@@ -170,10 +173,12 @@ class Row extends Component {
             height: 75,
             flexDirection: 'row',
             alignItems: 'center',
-          }}>
+          }}
+        >
           <TouchableOpacity
             style={[styles.button]}
-            onPress={this.onButtonPress.bind(this, 'done')}>
+            onPress={this.onButtonPress.bind(this, 'done')}
+          >
             <Animated.Image
               source={require('../assets/icon-check.png')}
               style={[
@@ -202,7 +207,7 @@ class Row extends Component {
         </View>
 
         <Interactable.View
-          ref={el => (this.interactableElem = el)}
+          ref={(el) => (this.interactableElem = el)}
           horizontalOnly={true}
           snapPoints={[
             {
@@ -225,18 +230,21 @@ class Row extends Component {
           onDrag={this.onDrag.bind(this)}
           onStop={this.onStopMoving.bind(this)}
           dragToss={0.01}
-          animatedValueX={this._deltaX}>
+          animatedValueX={this._deltaX}
+        >
           <TouchableHighlight
             onPress={this.onRowPress.bind(this)}
             activeOpacity={activeOpacity}
-            underlayColor={'#dddddd'}>
+            underlayColor={'#dddddd'}
+          >
             <View
               style={{
                 left: 0,
                 right: 0,
                 height: 75,
                 backgroundColor: 'white',
-              }}>
+              }}
+            >
               {this.props.children}
             </View>
           </TouchableHighlight>

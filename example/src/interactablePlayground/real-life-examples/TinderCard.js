@@ -17,7 +17,8 @@ export default class TinderCard extends Component {
           style={styles.container}
           horizontalOnly={true}
           snapPoints={[{ x: 390 }, { x: 0, damping: 0.8 }, { x: -390 }]}
-          animatedValueX={this._deltaX}>
+          animatedValueX={this._deltaX}
+        >
           <Animated.View
             style={[
               styles.card,
@@ -34,7 +35,8 @@ export default class TinderCard extends Component {
                   },
                 ],
               },
-            ]}>
+            ]}
+          >
             <Image
               style={styles.image}
               source={require('../assets/tinder-photo.jpg')}
@@ -52,7 +54,8 @@ export default class TinderCard extends Component {
                     extrapolateRight: 'clamp',
                   }),
                 },
-              ]}>
+              ]}
+            >
               <Text style={styles.overlayText}>Trash</Text>
             </Animated.View>
 
@@ -68,7 +71,8 @@ export default class TinderCard extends Component {
                     extrapolateRight: 'clamp',
                   }),
                 },
-              ]}>
+              ]}
+            >
               <Text style={styles.overlayText}>Keep</Text>
             </Animated.View>
           </Animated.View>

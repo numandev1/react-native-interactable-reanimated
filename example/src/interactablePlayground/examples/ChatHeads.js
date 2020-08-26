@@ -19,7 +19,8 @@ export default class ChatHeads extends Component {
             { x: -140, y: 250 },
             { x: 140, y: 250, tension: 50, damping: 0.9 },
           ]}
-          initialPosition={{ x: -140, y: -250 }}>
+          initialPosition={{ x: -140, y: -250 }}
+        >
           <View
             style={{
               width: 70,

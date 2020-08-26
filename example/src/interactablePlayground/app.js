@@ -59,37 +59,44 @@ export default class example extends Component {
           <Text style={styles.button}>Chat Heads</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, SwipeableCard)}>
+          onPress={this.onExamplePress.bind(this, SwipeableCard)}
+        >
           <Text style={styles.button}>Swipeable Card</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.onExamplePress.bind(this, IconDrawer)}>
           <Text style={styles.button}>Icon Drawer (row actions)</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, CollapsingHeader)}>
+          onPress={this.onExamplePress.bind(this, CollapsingHeader)}
+        >
           <Text style={styles.button}>Collapsing Header</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.onExamplePress.bind(this, MoreDrawers)}>
           <Text style={styles.button}>More Drawers (row actions)</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, MoreChatHeads)}>
+          onPress={this.onExamplePress.bind(this, MoreChatHeads)}
+        >
           <Text style={styles.button}>More Chat Heads</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, HandleTouches)}>
+          onPress={this.onExamplePress.bind(this, HandleTouches)}
+        >
           <Text style={styles.button}>Handle Touches</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, TouchesInside)}>
+          onPress={this.onExamplePress.bind(this, TouchesInside)}
+        >
           <Text style={styles.button}>Touches Inside (interactive)</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, TouchesInsideStatic)}>
+          onPress={this.onExamplePress.bind(this, TouchesInsideStatic)}
+        >
           <Text style={styles.button}>Touches Inside (static)</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, HandleRelayout)}>
+          onPress={this.onExamplePress.bind(this, HandleRelayout)}
+        >
           <Text style={styles.button}>Handle Relayout</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.onExamplePress.bind(this, SideMenu)}>
@@ -99,19 +106,22 @@ export default class example extends Component {
           <Text style={styles.button}>Snap To (imperative cmd)</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, ChangePosition)}>
+          onPress={this.onExamplePress.bind(this, ChangePosition)}
+        >
           <Text style={styles.button}>Change Position (imperative cmd)</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.onExamplePress.bind(this, AlertAreas)}>
           <Text style={styles.button}>Alert Areas and Drag Event</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, CollapsingHeaderWithScroll)}>
+          onPress={this.onExamplePress.bind(this, CollapsingHeaderWithScroll)}
+        >
           <Text style={styles.button}>Collapsing Header with Scroll</Text>
         </TouchableOpacity>
         <Text style={styles.seperatorText}>Real Life examples</Text>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, Documentation)}>
+          onPress={this.onExamplePress.bind(this, Documentation)}
+        >
           <Text style={styles.button2}>Documentation</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.onExamplePress.bind(this, RowActions1)}>
@@ -133,19 +143,23 @@ export default class example extends Component {
           <Text style={styles.button}>Apple Maps-Style Panel</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, CollapsibleFilter)}>
+          onPress={this.onExamplePress.bind(this, CollapsibleFilter)}
+        >
           <Text style={styles.button}>Collapsible Filter</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, CollapsibleCalendar)}>
+          onPress={this.onExamplePress.bind(this, CollapsibleCalendar)}
+        >
           <Text style={styles.button}>Collapsible Calendar (Any.do-Style)</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, RealChatHeads)}>
+          onPress={this.onExamplePress.bind(this, RealChatHeads)}
+        >
           <Text style={styles.button}>Real Chat Heads</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={this.onExamplePress.bind(this, UxInspirations)}>
+          onPress={this.onExamplePress.bind(this, UxInspirations)}
+        >
           <Text style={styles.button2}>UX Inspirations</Text>
         </TouchableOpacity>
       </ScrollView>

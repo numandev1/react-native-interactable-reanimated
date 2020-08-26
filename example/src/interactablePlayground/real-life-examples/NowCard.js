@@ -35,7 +35,8 @@ export default class NowCard extends Component {
             },
             { x: -360 },
           ]}
-          animatedValueX={this._deltaX}>
+          animatedValueX={this._deltaX}
+        >
           <Animated.View
             style={[
               styles.card,
@@ -47,7 +48,8 @@ export default class NowCard extends Component {
                   extrapolateRight: 'clamp',
                 }),
               },
-            ]}>
+            ]}
+          >
             <Text style={styles.header}>Info for you</Text>
             <Image
               style={styles.image}
@@ -71,7 +73,7 @@ export default class NowCard extends Component {
             minimumTrackTintColor={'#007AFF'}
             maximumTrackTintColor={'white'}
             thumbTintColor={'white'}
-            onSlidingComplete={value => this.setState({ damping: value })}
+            onSlidingComplete={(value) => this.setState({ damping: value })}
           />
           <Text style={styles.playgroundLabel}>Change spring tension:</Text>
           <Slider
@@ -83,7 +85,7 @@ export default class NowCard extends Component {
             minimumTrackTintColor={'#007AFF'}
             maximumTrackTintColor={'white'}
             thumbTintColor={'white'}
-            onSlidingComplete={value => this.setState({ tension: value })}
+            onSlidingComplete={(value) => this.setState({ tension: value })}
           />
         </View>
       </View>

@@ -49,7 +49,8 @@ export default class NotifPanel extends Component {
               bottom: 0,
               bounce: 2,
               haptics: true,
-            }}>
+            }}
+          >
             <View style={styles.panel}>
               <Text style={styles.panelHeader}>Today</Text>
               <Notification
@@ -80,7 +81,8 @@ export default class NotifPanel extends Component {
                   Platform.OS === 'android'
                     ? styles.panelFooterAndroid
                     : styles.panelFooterIos
-                }>
+                }
+              >
                 <Text style={styles.panelFooterText}>4 NOTIFICATIONS</Text>
                 <View style={styles.panelHandle} />
               </View>

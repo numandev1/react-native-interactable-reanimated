@@ -19,7 +19,8 @@ export default class CollapsingHeaderWithScroll extends Component {
     return (
       <View style={styles.container}>
         <View
-          style={{ backgroundColor: 'red', height: 250, alignItems: 'center' }}>
+          style={{ backgroundColor: 'red', height: 250, alignItems: 'center' }}
+        >
           <Animated.View
             style={{
               transform: [
@@ -36,7 +37,8 @@ export default class CollapsingHeaderWithScroll extends Component {
                   }),
                 },
               ],
-            }}>
+            }}
+          >
             <View
               style={{
                 width: 150,
@@ -54,7 +56,8 @@ export default class CollapsingHeaderWithScroll extends Component {
           snapPoints={[{ y: 0 }, { y: -150, id: 'bottom' }]}
           boundaries={{ top: -150 }}
           onSnap={this.onSnap.bind(this)}
-          animatedValueY={this._deltaY}>
+          animatedValueY={this._deltaY}
+        >
           <ScrollView
             bounces={false}
             canCancelContentTouches={this.state.canScroll}
@@ -64,7 +67,8 @@ export default class CollapsingHeaderWithScroll extends Component {
               right: 0,
               height: Screen.height - 100,
               backgroundColor: '#e0e0e0',
-            }}>
+            }}
+          >
             <View style={styles.placeholder} />
             <View style={styles.placeholder} />
             <View style={styles.placeholder} />
