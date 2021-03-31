@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Animated from 'react-native-reanimated';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
-
+import _ from 'lodash';
 const {
   add,
   cond,
@@ -202,20 +202,28 @@ class Interactable extends Component {
 
   constructor(props) {
     super(props);
-
-    const gesture = { x: new Value(0), y: new Value(0) };
-    const state = new Value(-1);
+    this.gesture = { x: new Value(0), y: new Value(0) };
+    this.state = new Value(-1);
 
     this._onGestureEvent = event([
       {
         nativeEvent: {
-          translationX: gesture.x,
-          translationY: gesture.y,
-          state: state,
+          translationX: this.gesture.x,
+          translationY: this.gesture.y,
+          state: this.state,
         },
       },
     ]);
+    this.initialize(props);
+  }
 
+  componentWillReceiveProps(nextProps) {
+    if (!_.isEqual(nextProps.snapPoints, this.props.snapPoints)) {
+      this.initialize(nextProps);
+    }
+  }
+
+  initialize = (props) => {
     const target = {
       x: new Value(props.initialPosition.x || 0),
       y: new Value(props.initialPosition.y || 0),
@@ -397,7 +405,7 @@ class Interactable extends Component {
       const x = target[axis];
       const vx = obj[vaxis];
       const anchor = dragAnchor[axis];
-      const drag = gesture[axis];
+      const drag = this.gesture[axis];
       let advance = cond(
         lessThan(abs(vx), ANIMATOR_PAUSE_ZERO_VELOCITY),
         x,
@@ -422,7 +430,7 @@ class Interactable extends Component {
         ),
       ]);
       const step = cond(
-        eq(state, State.ACTIVE),
+        eq(this.state, State.ACTIVE),
         [
           cond(dragging, 0, [
             handleStartDrag,
@@ -462,7 +470,8 @@ class Interactable extends Component {
 
     this._transX = trans('x', 'vx', 'left', 'right');
     this._transY = trans('y', 'vy', 'top', 'bottom');
-  }
+    this.setState({});
+  };
 
   render() {
     const { children, style, horizontalOnly, verticalOnly } = this.props;
