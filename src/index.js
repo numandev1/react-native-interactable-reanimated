@@ -204,7 +204,6 @@ class Interactable extends Component {
     super(props);
     this.gesture = { x: new Value(0), y: new Value(0) };
     this.state = new Value(-1);
-
     this._onGestureEvent = event([
       {
         nativeEvent: {
@@ -214,6 +213,7 @@ class Interactable extends Component {
         },
       },
     ]);
+
     this.initialize(props);
   }
 
@@ -470,7 +470,6 @@ class Interactable extends Component {
 
     this._transX = trans('x', 'vx', 'left', 'right');
     this._transY = trans('y', 'vy', 'top', 'bottom');
-    this.setState({});
   };
 
   render() {
