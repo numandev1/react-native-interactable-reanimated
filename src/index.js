@@ -36,6 +36,8 @@ const DEFAULT_SNAP_TENSION = 300;
 const DEFAULT_SNAP_DAMPING = 0.7;
 const DEFAULT_GRAVITY_STRENGTH = 400;
 const DEFAULT_GRAVITY_FALLOF = 40;
+const dragAnchor = { x: new Value(0), y: new Value(0) };
+const dragBuckets = [[], [], []];
 
 function sq(x) {
   return multiply(x, x);
@@ -213,6 +215,27 @@ class Interactable extends Component {
         },
       },
     ]);
+    this.snapAnchor = {
+      x: new Value(props.initialPosition.x || 0),
+      y: new Value(props.initialPosition.y || 0),
+      tension: new Value(DEFAULT_SNAP_TENSION),
+      damping: new Value(DEFAULT_SNAP_DAMPING),
+    };
+
+    this.target = {
+      x: new Value(props.initialPosition.x || 0),
+      y: new Value(props.initialPosition.y || 0),
+    };
+
+    this.obj = {
+      vx: new Value(0),
+      vy: new Value(0),
+      mass: 1,
+    };
+
+    this.clock = new Clock();
+
+    this.dt = divide(diff(this.clock), 1000);
 
     this.initialize(props);
   }
@@ -224,29 +247,13 @@ class Interactable extends Component {
   }
 
   initialize = (props) => {
-    const target = {
-      x: new Value(props.initialPosition.x || 0),
-      y: new Value(props.initialPosition.y || 0),
-    };
-
     const update = {
       x: props.animatedValueX,
       y: props.animatedValueY,
     };
-
-    const clock = new Clock();
-
-    const dt = divide(diff(clock), 1000);
-
-    const obj = {
-      vx: new Value(0),
-      vy: new Value(0),
-      mass: 1,
-    };
-
     const tossedTarget = {
-      x: add(target.x, multiply(props.dragToss, obj.vx)),
-      y: add(target.y, multiply(props.dragToss, obj.vy)),
+      x: add(this.target.x, multiply(props.dragToss, this.obj.vx)),
+      y: add(this.target.y, multiply(props.dragToss, this.obj.vy)),
     };
 
     const permBuckets = [[], [], []];
@@ -255,8 +262,8 @@ class Interactable extends Component {
       buckets[0].push(
         withInfluence(
           influence,
-          target,
-          springBehavior(dt, target, obj, anchor, tension)
+          this.target,
+          springBehavior(this.dt, this.target, this.obj, anchor, tension)
         )
       );
     };
@@ -265,8 +272,8 @@ class Interactable extends Component {
       buckets[1].push(
         withInfluence(
           influence,
-          target,
-          frictionBehavior(dt, target, obj, damping)
+          this.target,
+          frictionBehavior(this.dt, this.target, this.obj, damping)
         )
       );
     };
@@ -281,45 +288,47 @@ class Interactable extends Component {
       buckets[0].push(
         withInfluence(
           influence,
-          target,
-          gravityBehavior(dt, target, obj, anchor, strength, falloff)
+          this.target,
+          gravityBehavior(
+            this.dt,
+            this.target,
+            this.obj,
+            anchor,
+            strength,
+            falloff
+          )
         )
       );
     };
 
-    const dragAnchor = { x: new Value(0), y: new Value(0) };
-    const dragBuckets = [[], [], []];
     if (props.dragWithSpring) {
       const { tension, damping } = props.dragWithSpring;
       addSpring(dragAnchor, tension, null, dragBuckets);
       addFriction(damping, null, dragBuckets);
     } else {
-      dragBuckets[0].push(anchorBehavior(dt, target, obj, dragAnchor));
+      dragBuckets[0].push(
+        anchorBehavior(this.dt, this.target, this.obj, dragAnchor)
+      );
     }
 
     const handleStartDrag =
       props.onDrag &&
-      call([target.x, target.y], ([x, y]) =>
+      call([this.target.x, this.target.y], ([x, y]) =>
         props.onDrag({ nativeEvent: { x, y, state: 'start' } })
       );
 
     const snapBuckets = [[], [], []];
-    const snapAnchor = {
-      x: new Value(props.initialPosition.x || 0),
-      y: new Value(props.initialPosition.y || 0),
-      tension: new Value(DEFAULT_SNAP_TENSION),
-      damping: new Value(DEFAULT_SNAP_DAMPING),
-    };
+
     const updateSnapTo = snapTo(
       tossedTarget,
       props.snapPoints,
-      snapAnchor,
+      this.snapAnchor,
       props.onSnap,
       props.onDrag
     );
 
-    addSpring(snapAnchor, snapAnchor.tension, null, snapBuckets);
-    addFriction(snapAnchor.damping, null, snapBuckets);
+    addSpring(this.snapAnchor, this.snapAnchor.tension, null, snapBuckets);
+    addFriction(this.snapAnchor.damping, null, snapBuckets);
 
     if (props.springPoints) {
       props.springPoints.forEach((pt) => {
@@ -348,9 +357,9 @@ class Interactable extends Component {
     if (props.boundaries) {
       snapBuckets[0].push(
         bounceBehavior(
-          dt,
-          target,
-          obj,
+          this.dt,
+          this.target,
+          this.obj,
           props.boundaries,
           props.boundaries.bounce
         )
@@ -388,28 +397,28 @@ class Interactable extends Component {
       [
         props.onStop
           ? cond(
-              clockRunning(clock),
-              call([target.x, target.y], ([x, y]) =>
+              clockRunning(this.clock),
+              call([this.target.x, this.target.y], ([x, y]) =>
                 props.onStop({ nativeEvent: { x, y } })
               )
             )
           : undefined,
-        stopClock(clock),
+        stopClock(this.clock),
       ],
-      startClock(clock)
+      startClock(this.clock)
     );
 
     const trans = (axis, vaxis, lowerBound, upperBound) => {
       const dragging = new Value(0);
       const start = new Value(0);
-      const x = target[axis];
-      const vx = obj[vaxis];
+      const x = this.target[axis];
+      const vx = this.obj[vaxis];
       const anchor = dragAnchor[axis];
       const drag = this.gesture[axis];
       let advance = cond(
         lessThan(abs(vx), ANIMATOR_PAUSE_ZERO_VELOCITY),
         x,
-        add(x, multiply(vx, dt))
+        add(x, multiply(vx, this.dt))
       );
       if (props.boundaries) {
         advance = withLimits(
@@ -421,8 +430,8 @@ class Interactable extends Component {
       const last = new Value(Number.MAX_SAFE_INTEGER);
       const noMoveFrameCount = noMovementFrames[axis];
       const testMovementFrames = block([
-        onChange(snapAnchor.x, set(last, Number.MAX_SAFE_INTEGER)),
-        onChange(snapAnchor.y, set(last, Number.MAX_SAFE_INTEGER)),
+        onChange(this.snapAnchor.x, set(last, Number.MAX_SAFE_INTEGER)),
+        onChange(this.snapAnchor.y, set(last, Number.MAX_SAFE_INTEGER)),
         cond(
           eq(advance, last),
           set(noMoveFrameCount, add(noMoveFrameCount, 1)),
@@ -434,22 +443,25 @@ class Interactable extends Component {
         [
           cond(dragging, 0, [
             handleStartDrag,
-            startClock(clock),
+            startClock(this.clock),
             set(dragging, 1),
             set(start, x),
           ]),
           set(anchor, add(start, drag)),
-          cond(dt, dragBehaviors[axis]),
+          cond(this.dt, dragBehaviors[axis]),
         ],
         [
           cond(dragging, [updateSnapTo, set(dragging, 0)]),
-          cond(dt, snapBehaviors[axis]),
+          cond(this.dt, snapBehaviors[axis]),
           testMovementFrames,
           stopWhenNeeded,
         ]
       );
       const wrapStep = props.dragEnabled
-        ? cond(props.dragEnabled, step, [set(dragging, 1), stopClock(clock)])
+        ? cond(props.dragEnabled, step, [
+            set(dragging, 1),
+            stopClock(this.clock),
+          ])
         : step;
 
       // export some values to be available for imperative commands
@@ -465,8 +477,8 @@ class Interactable extends Component {
     // variables to be used to access reanimated values from imperative commands
     this._dragging = {};
     this._velocity = {};
-    this._position = target;
-    this._snapAnchor = snapAnchor;
+    this._position = this.target;
+    this._snapAnchor = this.snapAnchor;
 
     this._transX = trans('x', 'vx', 'left', 'right');
     this._transY = trans('y', 'vy', 'top', 'bottom');
