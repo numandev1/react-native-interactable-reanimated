@@ -227,7 +227,7 @@ class Interactable extends Component {
     this.initialize(props);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (!_.isEqual(nextProps.snapPoints, this.props.snapPoints)) {
       this.initialize(nextProps);
     }
@@ -537,6 +537,11 @@ class Interactable extends Component {
       this._dragging.x.setValue(1);
       this._position.y.setValue(y);
     }
+  }
+
+  snapToPosition({ x, y }) {
+    this._snapAnchor.x.setValue(x || 0);
+    this._snapAnchor.y.setValue(y || 0);
   }
 }
 
