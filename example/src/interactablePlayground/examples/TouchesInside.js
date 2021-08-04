@@ -71,8 +71,7 @@ export default class TouchesInside extends Component {
 
           <WebView
             source={{
-              uri:
-                'https://static.wixstatic.com/media/e758eb_729674838e084f49bc75db035ed286a6~mv2.jpg/v1/fill/w_733,h_489,al_c,q_80,usm_0.66_1.00_0.01/e758eb_729674838e084f49bc75db035ed286a6~mv2.jpg',
+              uri: 'https://static.wixstatic.com/media/e758eb_729674838e084f49bc75db035ed286a6~mv2.jpg/v1/fill/w_733,h_489,al_c,q_80,usm_0.66_1.00_0.01/e758eb_729674838e084f49bc75db035ed286a6~mv2.jpg',
             }}
             style={{ width: 150, height: 100 }}
           />

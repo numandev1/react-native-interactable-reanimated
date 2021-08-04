@@ -54,8 +54,7 @@ export default class TouchesInside extends Component {
           <Image
             style={{ width: 220, height: 100, marginBottom: 10 }}
             source={{
-              uri:
-                'https://static.wixstatic.com/media/e758eb_729674838e084f49bc75db035ed286a6~mv2.jpg/v1/fill/w_300,h_160,al_c,q_80,usm_0.66_1.00_0.01/e758eb_729674838e084f49bc75db035ed286a6~mv2.jpg',
+              uri: 'https://static.wixstatic.com/media/e758eb_729674838e084f49bc75db035ed286a6~mv2.jpg/v1/fill/w_300,h_160,al_c,q_80,usm_0.66_1.00_0.01/e758eb_729674838e084f49bc75db035ed286a6~mv2.jpg',
             }}
           />
 
